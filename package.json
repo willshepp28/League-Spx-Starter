@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "starter files to LeagueSpx. Follow medium blog to code along with this project https://medium.com/@willsheppard29/build-and-deploy-a-league-sponsorship-service-with-node-js-sequelize-postgresql-part-1-76851c0036eb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "deploy": "git push heroku main",
+    "createdb": " sequelize db:create",
+    "dropdb": "sequelize db:drop",
+    "migrate": "sequelize db:migrate",
+    "seedAll": "npx sequelize db:seed:all",
+    "dropcreatedb": "sequelize db:drop && sequelize db:create",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
+  },
+  "author": "Will Sheppard",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
